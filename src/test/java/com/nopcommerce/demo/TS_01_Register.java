@@ -1,20 +1,21 @@
 package com.nopcommerce.demo;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.testng.annotations.Parameters;
 
-public class TS_01_Register {
+import common.BaseTest;
+import pageObjects.RegisterPageObject;
+
+public class TS_01_Register extends BaseTest {
 	WebDriver driver;
-	String projectPath = System.getProperty("user.dir");
+	RegisterPageObject register;
 	
+	@Parameters("browser")
 	@BeforeClass
-	public void beforeClass() {
-		System.setProperty("webdriver.chrome.driver", projectPath + "/browserDrivers/chromedriver.exe");
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
+	public void beforeClass(String browserName) {
+		driver = getBrowserDriver(browserName, "https://demo.nopcommerce.com/register?returnUrl=%2F");
 	}
 
 	@AfterClass
@@ -22,8 +23,5 @@ public class TS_01_Register {
 		driver.quit();
 	}
 	
-	@Test
-	public void TC_01_RegisterWithEmptyData() {
-		
-	}
+	
 }

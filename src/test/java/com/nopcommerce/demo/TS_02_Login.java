@@ -1,28 +1,24 @@
 package com.nopcommerce.demo;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import common.BaseTest;
 import pageObjects.LoginPageObject;
 
-public class TS_02_Login {
+public class TS_02_Login extends BaseTest {
 	WebDriver driver;
-	String projectPath = System.getProperty("user.dir");
 	LoginPageObject loginPage;
 	
+	@Parameters("browser")
 	@BeforeClass
-	public void beforeClass() {
-		String url = "https://demo.nopcommerce.com/login?returnUrl=%2F";
-		System.setProperty("webdriver.chrome.driver", projectPath + "/browserDrivers/chromedriver.exe");
-		driver = new ChromeDriver();
-		driver.get(url);
-		driver.manage().window().maximize();
-		
+	public void beforeClass(String browserName) {
+		driver = getBrowserDriver(browserName, "https://demo.nopcommerce.com/login?returnUrl=%2F");
 		loginPage = new LoginPageObject(driver);
 	}
 
