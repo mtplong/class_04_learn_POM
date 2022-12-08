@@ -3,7 +3,7 @@
 <suite name="Suite">
 
 	<test name="Precondition - Create user to test">
-		<parameter name="browser" value="firefox" />
+		<parameter name="browser" value="chrome" />
 		<classes>
 			<class name="com.nopcommerce.demo.TS_00_Precondition" />
 		</classes>

@@ -17,6 +17,10 @@ public class LoginPageObject extends BasePage {
 		sendKeysToElement(driver, LoginPageUI.EMAIL_TEXTBOX, email);
 	}
 	
+	public void inputToPasswordTextbox(String email) {
+		sendKeysToElement(driver, LoginPageUI.PASSWORD_TEXTBOX, email);
+	}
+	
 	public void clickToLoginButton() {
 		waitForElementClickable(driver, LoginPageUI.LOGIN_BUTTON);
 		clickToElement(driver, LoginPageUI.LOGIN_BUTTON);
@@ -32,3 +36,5 @@ public class LoginPageObject extends BasePage {
 		return message.contains(value);
 	}
 }
+
+
