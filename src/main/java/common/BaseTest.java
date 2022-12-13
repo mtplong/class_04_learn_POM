@@ -29,4 +29,8 @@ public class BaseTest {
 		driver.get(url);
 		return driver;
 	}
+	
+	public WebDriver getDriver() {
+		return driver;
+	}
 }

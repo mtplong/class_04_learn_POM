@@ -1,11 +1,18 @@
 package reportConfigV3;
 
+import java.io.IOException;
+
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.MediaEntityBuilder;
+import com.aventstack.extentreports.Status;
 
 import common.BaseTest;
 
@@ -30,7 +37,16 @@ public class ExtentTestListener extends BaseTest implements ITestListener  {
 	@Override
 	public void onTestFailure(ITestResult result) {
 		// TODO Auto-generated method stub
-		test.get().fail(result.getThrowable());
+		Object testClass = result.getInstance();
+		WebDriver driver = ((BaseTest)testClass).getDriver();
+		String base64Screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+		
+		try {
+			test.get().fail(result.getThrowable());
+			test.get().log(Status.FAIL, "Screenshot of test failed", MediaEntityBuilder.createScreenCaptureFromBase64String(base64Screenshot).build());
+		}catch(IOException e){
+			e.printStackTrace();
+		}
 	}
 
 	@Override
