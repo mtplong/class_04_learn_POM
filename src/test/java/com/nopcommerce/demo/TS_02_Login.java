@@ -38,7 +38,7 @@ public class TS_02_Login extends BaseTest {
 		loginPage.refeshCurrentPage(driver);
 		loginPage.inputToEmailTextbox("abcd");
 		loginPage.clickToLoginButton();
-		Assert.assertTrue(loginPage.isEmailErrorMessage("Wrong email"));
+		Assert.assertTrue(loginPage.isEmailErrorMessage("Wrong email..."));
 	}
 	
 	@Test

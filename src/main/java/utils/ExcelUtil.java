@@ -58,4 +58,10 @@ public class ExcelUtil {
 		fileOut.flush();
 		fileOut.close();
 	}
+	
+	// Kiểm tra số lượng record trong 1 Sheet
+	public static int getRowCountInSheet() {
+		int rowCount = excelWSheet.getLastRowNum() - excelWSheet.getFirstRowNum();
+		return rowCount;
+	}
 }
