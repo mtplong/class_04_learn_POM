@@ -3,7 +3,7 @@
 <suite name="Suite">
 
 	<listeners>
-		<listener class-name="reportConfigV3.ExtentTestListener"></listener>
+		<listener class-name="reportConfigV5.ExtentTestListener"></listener>
 	</listeners>
 
 	<test name="Test case run on Chrome browser">
