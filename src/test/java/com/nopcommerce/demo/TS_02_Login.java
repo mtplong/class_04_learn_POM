@@ -36,7 +36,7 @@ public class TS_02_Login extends BaseTest {
 	@Test
 	public void TC_01_LoginWithEmptyData() {
 		// Use for Extent Report v5
-		ExtentTestManager.startTest("TC_01_LoginWithEmptyData", "");
+		ExtentTestManager.startTest("Login With Empty Data", "");
 		ExtentTestManager.getTest().log(Status.INFO, "Step 1: click register button without input anything");
 		loginPage.clickToLoginButton();
 		ExtentTestManager.getTest().log(Status.INFO, "Step 2: verify error message");
@@ -45,7 +45,7 @@ public class TS_02_Login extends BaseTest {
 	
 	@Test
 	public void TC_02_LoginWithInvalidData() {
-		ExtentTestManager.startTest("TC_02_LoginWithInvalidData", "");
+		ExtentTestManager.startTest("Login With Invalid Data", "");
 		loginPage.refeshCurrentPage(driver);
 		
 		ExtentTestManager.getTest().log(Status.INFO, "input email: " + email);
@@ -61,7 +61,7 @@ public class TS_02_Login extends BaseTest {
 	
 	@Test
 	public void TC_03_LoginWithUnregisteredEmail() {
-		ExtentTestManager.startTest("TC_03_LoginWithUnregisteredEmail", "");
+		ExtentTestManager.startTest("Login With Unregistered Email", "");
 		loginPage.refeshCurrentPage(driver);
 		
 		ExtentTestManager.getTest().log(Status.INFO, "input email: " + email2);
